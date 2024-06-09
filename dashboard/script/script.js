@@ -18,6 +18,14 @@ const addTaskModal = document.querySelector(".add-task-modal");
 const addTaskModalButton = document.querySelectorAll(".add-task-modal button")
 const addTaskModalInput = document.querySelectorAll(".add-task-modal input")
 
+const statusSectionProgress = document.querySelector(".status-section-progress")
+
+
+
+const tableReport = document.querySelector('.table-report tbody')
+const addReportTable = document.querySelector('.add-report-table')
+const addReportModal = document.querySelector(".add-report-modal");
+const addReportModalButton = document.querySelectorAll(".add-report-modal button")
 
 function remove() {
     let x = 1
@@ -226,12 +234,7 @@ window.addEventListener("load", () => {
                                     // ایجاد یک عنصر <tr>
 
                                     const taskObj = data["data"]["task"]
-                                    // ایجاد و افزودن عناصر <td> به <tr>
-                                    // for (let i = 0; i < 4; i++) {
-                                    //     const td = document.createElement('td');
-                                    //     td.textContent = 'Data';
-                                    //     tr.appendChild(td);
-                                    // }
+
                                     localStorage.setItem('listId', element.lid);
                                     tableTask.innerHTML = ""
                                     taskObj.forEach(element => {
@@ -255,15 +258,15 @@ window.addEventListener("load", () => {
                                         select.id = 'status-select';
 
                                         // ساختن گزینه‌ها
-                                        var options = [
+                                        let options = [
                                             { value: 'open', text: 'Open' },
                                             { value: 'in-progress', text: 'in-progress' },
                                             { value: 'close', text: 'Close' }
                                         ];
 
                                         // اضافه کردن گزینه‌ها به select
-                                        for (var i = 0; i < options.length; i++) {
-                                            var option = document.createElement('option');
+                                        for (let i = 0; i < options.length; i++) {
+                                            let option = document.createElement('option');
                                             option.value = options[i].value;
                                             option.text = options[i].text;
                                             select.appendChild(option);
@@ -398,7 +401,162 @@ window.addEventListener("load", () => {
                                                     remove()
                                                 });
                                         })
+                                        btnReport.addEventListener("click", () => {
+                                            console.log(element.tid);
+                                            fetch("http://localhost:3000/report/get", {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json'
+                                                },
+                                                credentials: 'include',
+                                                body: JSON.stringify({
+                                                    "tid": element.tid
+                                                })
+                                            })
+                                                .then(async (response) => {
+                                                    const data = await response.json();
 
+                                                    if (response.status === 201) {
+
+
+                                                        const reportObj = data["data"]["report"]
+                                                        console.log(data);
+                                                        localStorage.setItem('taskId', element.tid);
+                                                        tableReport.innerHTML = ""
+                                                        reportObj.forEach(element => {
+                                                            const tr = document.createElement('tr');
+                                                            const td1 = document.createElement('td');
+                                                            td1.textContent = element.rid;
+                                                            tr.appendChild(td1);
+
+                                                            const td2 = document.createElement('td');
+                                                            td2.textContent = element.description;
+                                                            td2.setAttribute('contenteditable', 'true');
+                                                            tr.appendChild(td2);
+
+
+
+
+                                                            // ایجاد و افزودن عنصر <td> برای دکمه‌ها
+                                                            const tdButtons = document.createElement('td');
+                                                            tdButtons.classList.add('text-center');
+
+                                                            // دکمه Edit
+                                                            const btnEdit = document.createElement('button');
+                                                            btnEdit.classList.add('btn', 'btn-sm', 'btn-info');
+                                                            const imgEdit = document.createElement('img');
+                                                            imgEdit.src = 'img/edit-clipboard-svgrepo-com.svg';
+                                                            imgEdit.alt = 'edit';
+                                                            btnEdit.appendChild(imgEdit);
+                                                            btnEdit.appendChild(document.createTextNode(' Edit'));
+                                                            tdButtons.appendChild(btnEdit);
+
+                                                            // دکمه Delete
+                                                            const btnDelete = document.createElement('button');
+                                                            btnDelete.classList.add('btn', 'btn-sm', 'btn-info-delete');
+                                                            const imgDelete = document.createElement('img');
+                                                            imgDelete.src = 'img/delete-svgrepo-com.svg';
+                                                            imgDelete.alt = 'delete';
+                                                            btnDelete.appendChild(imgDelete);
+                                                            btnDelete.appendChild(document.createTextNode(' Delete'));
+                                                            tdButtons.appendChild(btnDelete);
+
+                                                            // افزودن <td> دکمه‌ها به <tr>
+                                                            tr.appendChild(tdButtons);
+
+                                                            // افزودن <tr> به جدول یا بدنه آن (مثلاً tbody)
+                                                            tableReport.appendChild(tr);
+                                                            btnDelete.addEventListener("click", () => {
+
+                                                                fetch("http://localhost:3000/report/delete", {
+                                                                    method: 'POST',
+                                                                    headers: {
+                                                                        'Content-Type': 'application/json'
+                                                                    },
+                                                                    credentials: 'include',
+                                                                    body: JSON.stringify({
+                                                                        "rid": element.rid
+                                                                    })
+                                                                })
+                                                                    .then(async (response) => {
+                                                                        const data = await response.json();
+
+                                                                        if (response.status === 201) {
+                                                                            // const userObj = data["data"]["user"];
+
+                                                                            tr.remove();
+                                                                            // location.reload();
+                                                                            // window.location.href = '../signin';
+                                                                            toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
+                                                                            remove()
+                                                                        } else {
+                                                                            // console.error('خطا: عملیات ناموفق بود');
+                                                                            toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${data.message}</div></div>`
+                                                                            remove()
+                                                                            // window.location.href = '../signin';
+                                                                            // console.error('پیام:', data.message);
+                                                                        }
+                                                                    })
+                                                                    .catch(error => {
+                                                                        toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${error.message}</div></div>`
+                                                                        // console.error('خطا:', error.message);
+                                                                        remove()
+                                                                    });
+                                                            })
+                                                            btnEdit.addEventListener("click", () => {
+
+                                                                fetch("http://localhost:3000/report/update", {
+                                                                    method: 'POST',
+                                                                    headers: {
+                                                                        'Content-Type': 'application/json'
+                                                                    },
+                                                                    credentials: 'include',
+                                                                    body: JSON.stringify({
+                                                                        "rid": element.rid,
+                                                                        "description": td2.textContent
+                                                                    })
+                                                                })
+                                                                    .then(async (response) => {
+                                                                        const data = await response.json();
+
+                                                                        if (response.status === 201) {
+                                                                 
+
+                                                    
+                                                                            toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
+                                                                            remove()
+                                                                        } else {
+                                                                            // console.error('خطا: عملیات ناموفق بود');
+                                                                            toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${data.message}</div></div>`
+                                                                            remove()
+                                                                            // window.location.href = '../signin';
+                                                                            // console.error('پیام:', data.message);
+                                                                        }
+                                                                    })
+                                                                    .catch(error => {
+                                                                        toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${error.message}</div></div>`
+                                                                        // console.error('خطا:', error.message);
+                                                                        remove()
+                                                                    });
+                                                            })
+
+                                                        })
+                                                        toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
+                                                        remove()
+                                                    } else {
+                                                        // console.error('خطا: عملیات ناموفق بود');
+                                                        toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${data.message}</div></div>`
+                                                        remove()
+                                                        // window.location.href = '../signin';
+                                                        // console.error('پیام:', data.message);
+                                                    }
+                                                })
+                                                .catch(error => {
+                                                    toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${error.message}</div></div>`
+                                                    // console.error('خطا:', error.message);
+                                                    remove()
+                                                });
+                                        })
 
                                     });
 
@@ -439,9 +597,49 @@ window.addEventListener("load", () => {
         });
 
 
-    // return 0;
 
 
+    fetch("http://localhost:3000/status/getcount", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+        })
+    })
+        .then(async (response) => {
+            const data = await response.json();
+
+            if (response.status === 201) {
+                toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
+                remove()
+                const statusCountObj = data["data"]
+                // console.log(statusCountObj);
+
+                const h3TitleAll = statusSectionProgress.querySelectorAll("h3")
+                h3TitleAll[0].textContent = statusCountObj["open"]
+                h3TitleAll[1].textContent = statusCountObj["progress"]
+                h3TitleAll[2].textContent = statusCountObj["close"]
+
+
+                const progressBarAll = statusSectionProgress.querySelectorAll("div.progress-bar")
+                progressBarAll[0].style.width = 100 - (statusCountObj["open"] / statusCountObj["statusall"] * 100) + "%"
+                progressBarAll[1].style.width = 100 - (statusCountObj["progress"] / statusCountObj["statusall"] * 100) + "%"
+                progressBarAll[2].style.width = (statusCountObj["close"] / statusCountObj["statusall"] * 100) + "%"
+                // location.reload();
+
+            } else {
+                // console.error('خطا: عملیات ناموفق بود');
+                toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${data.message}</div></div>`
+                remove()
+                // console.error('پیام:', data.message);
+            }
+        })
+        .catch(error => {
+            toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${error.message}</div></div>`
+            // console.error('خطا:', error.message);
+        });
 
 
 
@@ -632,7 +830,7 @@ addTaskModalButton[2].addEventListener("click", (event) => {
         },
         credentials: 'include',
         body: JSON.stringify({
-            "lid":localStorage.getItem("listId"),
+            "lid": localStorage.getItem("listId"),
             "title": addTaskModalInput[0].value,
             "description": addTaskModal.querySelector("textarea").value
         })
@@ -660,3 +858,64 @@ addTaskModalButton[2].addEventListener("click", (event) => {
 })
 
 
+/////////////////////////////////
+
+addReportTable.addEventListener("click", (event) => {
+    addReportModal.style.display = "block"
+    modalBackDrop.style.display = "block"
+
+    modalBackDrop.classList.add("show")
+    addReportModal.classList.add('show');
+})
+
+
+
+function removeModalAddReport(event) {
+    addReportModal.style.display = "none"
+    modalBackDrop.style.display = "none"
+    modalBackDrop.classList.remove("show")
+    addReportModal.classList.remove('show');
+}
+addReportModalButton[0].addEventListener("click", removeModalAddReport)
+addReportModalButton[1].addEventListener("click", removeModalAddReport)
+
+
+addReportModalButton[2].addEventListener("click", (event) => {
+    if (!localStorage.getItem("taskId")) {
+        toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">please select a task</div></div>`
+        remove()
+        removeModalAddReport()
+        return;
+    }
+    fetch("http://localhost:3000/report/insert", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+            "tid": localStorage.getItem("taskId"),
+            "description": addReportModal.querySelector("textarea").value
+        })
+    })
+        .then(async (response) => {
+            const data = await response.json();
+
+            if (response.status === 201) {
+                toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
+                removeModalAddReport()
+                remove()
+                location.reload();
+
+            } else {
+                // console.error('خطا: عملیات ناموفق بود');
+                toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${data.message}</div></div>`
+                remove()
+                // console.error('پیام:', data.message);
+            }
+        })
+        .catch(error => {
+            toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${error.message}</div></div>`
+            // console.error('خطا:', error.message);
+        });
+})
