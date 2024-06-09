@@ -20,13 +20,12 @@ const addTaskModalInput = document.querySelectorAll(".add-task-modal input")
 
 const statusSectionProgress = document.querySelector(".status-section-progress")
 
-
-
 const tableReport = document.querySelector('.table-report tbody')
 const addReportTable = document.querySelector('.add-report-table')
 const addReportModal = document.querySelector(".add-report-modal");
 const addReportModalButton = document.querySelectorAll(".add-report-modal button")
 
+///////////Error remove
 function remove() {
     let x = 1
     let temp = setInterval(() => {
@@ -38,6 +37,7 @@ function remove() {
     }, 1000)
 }
 
+////////slide open and close
 person.addEventListener("click", () => {
     if (sidebarRight.className === "") {
         sidebarRight.className = "sidebar-open"
@@ -46,6 +46,7 @@ person.addEventListener("click", () => {
     }
 })
 
+///////load data when refreash web page
 window.addEventListener("load", () => {
     fetch("http://localhost:3000/user/protected-route", {
         method: 'POST',
@@ -96,7 +97,7 @@ window.addEventListener("load", () => {
                 formUpdateProfile[1].value = userObj["email"]
                 formUpdateProfile[2].value = userObj["username"]
                 formUpdateProfile[3].value = userObj["password"]
-                // profileUser.innerHTML = "online"
+                
 
 
                 // toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
@@ -175,7 +176,7 @@ window.addEventListener("load", () => {
                     li.appendChild(button);
 
                     // فرض بر این است که می‌خواهید این li را به یک ul با id='myList' اضافه کنید
-                    // const ul = document.getElementById('myList');
+                    
                     listUl.appendChild(li);
 
                     button.addEventListener("click", () => {
@@ -196,8 +197,10 @@ window.addEventListener("load", () => {
                                     toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
 
                                     localStorage.removeItem('listId');
-                                    location.reload();
-                                    // window.location.href = '../signin';
+
+                                    li.remove()
+                                    // location.reload();
+                                   
                                     remove()
                                 } else {
                                     // console.error('خطا: عملیات ناموفق بود');
@@ -386,7 +389,7 @@ window.addEventListener("load", () => {
 
 
                                                         toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
-                                                        // remove()
+                                                        remove()
                                                     } else {
                                                         // console.error('خطا: عملیات ناموفق بود');
                                                         toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${data.message}</div></div>`
@@ -647,6 +650,7 @@ window.addEventListener("load", () => {
 
 })
 
+/////log out
 floatRight.addEventListener("click", (event) => {
     fetch("http://localhost:3000/user/logout", {
         method: 'POST',
@@ -677,6 +681,7 @@ floatRight.addEventListener("click", (event) => {
         });
 })
 
+//////update user
 formUpdateProfileButton.addEventListener("submit", (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/user/update", {
@@ -719,36 +724,6 @@ addListButton.addEventListener("click", (event) => {
 
     modalBackDrop.classList.add("show")
     addListModal.classList.add('show');
-
-
-    // fetch("http://localhost:3000/list/add", {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     credentials: 'include',
-    //     body: JSON.stringify({
-
-    //     })
-    // })
-    //     .then(async (response) => {
-    //         const data = await response.json();
-
-    //         if (response.status === 201) {
-    //             toastContainer.innerHTML = `<div class="toast toast-success"><div class="toast-message">${data.message}</div></div>`
-    //             window.location.href = '../signin';
-    //             remove()
-    //         } else {
-    //             // console.error('خطا: عملیات ناموفق بود');
-    //             toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${data.message}</div></div>`
-    //             remove()
-    //             // console.error('پیام:', data.message);
-    //         }
-    //     })
-    //     .catch(error => {
-    //         toastContainer.innerHTML = `<div class="toast toast-error"><div class="toast-message">${error.message}</div></div>`
-    //         // console.error('خطا:', error.message);
-    //     });
 })
 
 function removeModalAddList(event) {
