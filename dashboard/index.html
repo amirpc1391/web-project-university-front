@@ -1,510 +1,411 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>task Managment</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
+
 <body class="theme-dark" style="overflow: auto;">
-<div class="grid-wrapper sidebar-bg bg1">
-    <div class="header">
-        <div class="header-bar">
-            <div class="brand">
-                <a href="index.html" class="logo"><span class="text-carolina">Task</span>Managment</a>
-                <a href="index.html" class="logo-sm text-carolina" style="display: none;">siQ</a>
-            </div>
-            <div class="navigation d-flex">
-
-                <!-- BOF Header Search -->
-                <form class="navbar-search" role="search" method="post" action="#">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><img src="img/search-svgrepo-com.svg" class="img-icon"
-                                                               alt="search-svgrepo-com"></div>
-                        </div>
-                        <input type="text" placeholder="Search for keywords" class="form-control" name="top-search"
-                               id="top-search">
-                    </div>
-                </form>
-
-                <div class="navbar-menu d-flex">
-                    <!--                    <div class="menu-item">-->
-                    <!--                        <a href="#" class="btn" data-toggle="dropdown">-->
-                    <!--                            <i class="ti-bell"></i>-->
-                    <!--                            <span class="badge badge-pill badge-danger">3</span>-->
-                    <!--                        </a>-->
-                    <!--                        <ul class="dropdown-menu dropdown-menu-right dropdown-alert">-->
-                    <!--                            <li class="dropdown-header text-center"><a href="#"><i class="ti-comment-alt"></i> View-->
-                    <!--                                All Alerts <i class="ti-angle-right"></i></a></li>-->
-                    <!--                            <li><a href="#"><i class="fa fa-user"></i> New user registered <span>Just now</span></a>-->
-                    <!--                            </li>-->
-                    <!--                            <li><a href="#"><i class="fa fa-calendar-plus-o"></i> New event created <span>5 min-->
-                    <!--                                            ago</span></a></li>-->
-                    <!--                            <li><a href="#"><i class="fa fa-area-chart"></i> Report ready to download <span>1 day-->
-                    <!--                                            ago</span></a></li>-->
-                    <!--                            <li><a href="#"><i class="fa fa-bank"></i> Bill payment reminder <span>1 day-->
-                    <!--                                            ago</span></a></li>-->
-                    <!--                            <li><a href="#"><i class="fa fa-clock-o"></i> Staff meeting <span>3 days ago</span></a>-->
-                    <!--                            </li>-->
-                    <!--                        </ul>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="menu-item">-->
-                    <!--                        <a href="#" class="btn" data-toggle="dropdown">-->
-                    <!--                            <i class="ti-email"></i>-->
-                    <!--                            <span class="badge badge-pill badge-success">7</span>-->
-                    <!--                        </a>-->
-                    <!--                        <ul class="dropdown-menu dropdown-menu-right dropdown-message">-->
-                    <!--                            <li class="dropdown-header text-center"><a href="#"><i class="ti-comments"></i> View All-->
-                    <!--                                Messages <i class="ti-angle-right"></i></a></li>-->
-                    <!--                            <li>-->
-                    <!--                                <img src="assets/img/profile/profile-04.jpg">-->
-                    <!--                                <div class="message-row">-->
-                    <!--                                    <small>24h ago</small>-->
-                    <!--                                    <a href="#"><span class="message-user">Pear Appleton</span><br>-->
-                    <!--                                        Staff meeting on Tuesday at 4PM, remember to set date</a>-->
-                    <!--                                </div>-->
-                    <!--                            </li>-->
-                    <!--                            <li>-->
-                    <!--                                <img src="assets/img/profile/profile-07.jpg">-->
-                    <!--                                <div class="message-row">-->
-                    <!--                                    <small>2h ago</small>-->
-                    <!--                                    <a href="#"><span class="message-user">siQuang Humbleman</span><br>-->
-                    <!--                                        RE: Remember to generate PNL for October</a>-->
-                    <!--                                </div>-->
-                    <!--                            </li>-->
-                    <!--                            <li>-->
-                    <!--                                <img src="assets/img/profile/profile-06.jpg">-->
-                    <!--                                <div class="message-row">-->
-                    <!--                                    <small>3d ago</small>-->
-                    <!--                                    <a href="#"><span class="message-user">Lemony Tang</span><br>-->
-                    <!--                                        Appointment with lawyer, better call Saul!</a>-->
-                    <!--                                </div>-->
-                    <!--                            </li>-->
-                    <!--                            <li>-->
-                    <!--                                <img src="assets/img/profile/profile-07.jpg">-->
-                    <!--                                <div class="message-row">-->
-                    <!--                                    <small>4d ago</small>-->
-                    <!--                                    <a href="#"><span class="message-user">siQuang Humbleman</span><br>-->
-                    <!--                                        Theme designed by siQuang for siQthemes</a>-->
-                    <!--                                </div>-->
-                    <!--                            </li>-->
-                    <!--                        </ul>-->
-                    <!--                    </div>-->
-                    <div class="menu-item">
-                        <a href="#" class="btn right-sidebar-toggle"><img src="img/person-border-svgrepo-com.svg"
-                                                                          class="img-icon" alt=""></a>
-                    </div>
+    <div class="grid-wrapper sidebar-bg bg1">
+        <div class="header">
+            <div class="header-bar">
+                <div class="brand">
+                    <a href="index.html" class="logo"><span class="text-carolina">Task</span>Managment</a>
+                    <a href="index.html" class="logo-sm text-carolina" style="display: none;">siQ</a>
                 </div>
-                <!-- EOF Header Nav -->
+                <div class="navigation d-flex">
 
-            </div>
-        </div>
-    </div>
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-content">
-            <!-- sidebar-menu  -->
-            <div class="sidebar-menu">
-                <div class="header-menu  center-between-flex">
-                   <span> Lists</span>
-                    <a href="#" class="btn btn-outline-secondary add-list-button"><img src="img/add-circle-svgrepo-com.svg" class="img-icon-no-padding" alt="add"></a>
-                </div>
-                <ul class="list-decoration-ul">
-<!--                    <li class="header-menu">-->
-<!--                        Lists-->
-<!--                    </li>-->
-
-
-
-                    <!-- <li class="active center-between-flex padding-list-li">
-                        <a class="a-flex-no-padding" href="index.html">
-                            <img src="img/list-ul-alt-svgrepo-com.svg" class="img-icon" alt="img-icon-list">
-                            <span class="menu-text">friday</span>
-                        </a>
-                        <button class="btn btn-sm btn-info-delete-small"><img class="img-icon-small" src="img/delete-svgrepo-com.svg" alt="delete">
-                        </button>
-                    </li>
-                    <li class="active center-between-flex padding-list-li">
-                        <a class="a-flex-no-padding" href="index.html">
-                            <img src="img/list-ul-alt-svgrepo-com.svg" class="img-icon" alt="img-icon-list">
-                            <span class="menu-text">study</span>
-                        </a>
-                        <button class="btn btn-sm btn-info-delete-small"><img class="img-icon-small" src="img/delete-svgrepo-com.svg" alt="delete">
-                        </button>
-                    </li> -->
-
-                    
-                </ul>
-            </div>
-            <!-- sidebar-menu  -->
-        </div>
-    </div>
-    <div class="main">
-        <div class="row">
-            <div class="col">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="javascript:;">
-                            <img src="img/house-chimney-floor-svgrepo-com.svg" class="img-icon"
-                                 alt="house-chimney-floor-svgrepo-com">
-                            Dashboard
-                        </a>
-                    </li>
-                </ol>
-            </div>
-        </div>
-        <div class="row status-section-progress">
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="icon-left text-secondary"><img src="img/status-error-filled-svgrepo-com.svg"
-                                                                   class="img-icon-status" alt=""></div>
-                        <div class="number-right text-right">
-                            <h6 class="bold text-secondary">Open Status</h6>
-                            <h3 class="card-title text-warning bold">0</h3>
-                        </div>
-                        <div class="progress progress-bar-sm">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                                 role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0"
-                                 aria-valuemax="100"></div>
-                        </div>
-<!--                        <div class="progress-text text-secondary">-->
-<!--                            <span class="float-left"><small>$0</small></span>-->
-<!--                            <span class="float-right"><small>$100,000</small></span>-->
-<!--                        </div>-->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="icon-left text-secondary"><img src="img/status-running-svgrepo-com.svg"
-                                                                   class="img-icon-status" alt=""></div>
-                        <div class="number-right text-right">
-                            <h6 class="bold text-secondary">In Progress Status</h6>
-                            <h3 class="card-title text-primary bold">0</h3>
-                        </div>
-                        <div class="progress progress-bar-sm">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%"
-                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-<!--                        <div class="progress-text text-secondary">-->
-<!--                            <span class="float-left"><small>Total Monthly Orders</small></span>-->
-<!--                        </div>-->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="icon-left text-secondary"><img src="img/status-approved-filled-svgrepo-com.svg"
-                                                                   class="img-icon-status" alt=""></div>
-                        <div class="number-right text-right">
-                            <h6 class="bold text-secondary">Close Status</h6>
-                            <h3 class="card-title text-bubblegum bold">0</h3>
-                        </div>
-                        <div class="progress progress-bar-sm">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-bubblegum"
-                                 role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0"
-                                 aria-valuemax="100"></div>
-                        </div>
-<!--                        <div class="progress-text text-secondary">-->
-<!--                            <span class="float-left"><small>0%</small></span>-->
-<!--                            <span class="float-right"><small>100%</small></span>-->
-<!--                        </div>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card mb-3">
-                    <div class="card-header uppercase">
-                        <div class="caption">
-                            <i class="ti-briefcase"></i> Task Table Selected List
-                        </div>
-                        <div class="tools">
-                            <a class="btn btn-outline-secondary add-task-table"><img src="img/add-circle-svgrepo-com.svg" class="img-icon-status" alt="add"></a>
-<!--                            <a href="#" class="btn btn-outline-secondary"><i class="ti-settings"></i></a>-->
-                        </div>
-                    </div>
-                    <div class="card-body scrollbox-lg" data-simplebar="init">
-                        <div class="simplebar-wrapper" style="margin: -19px;">
-                            <div class="simplebar-height-auto-observer-wrapper">
-                                <div class="simplebar-height-auto-observer"></div>
+                    <!-- BOF Header Search -->
+                    <form class="navbar-search" role="search" method="post" action="#">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><img src="img/search-svgrepo-com.svg" class="img-icon"
+                                        alt="search-svgrepo-com"></div>
                             </div>
-                            <div class="simplebar-mask">
-                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                                    <div class="simplebar-content-wrapper"
-                                         style="height: 100%; overflow: hidden scroll;">
-                                        <div class="simplebar-content" style="padding: 19px;">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered table-hover table-task">
-                                                    <thead>
-                                                    <tr>
-                                                        <th style="width:5%">ID</th>
-                                                        <th style="width:10%">Title</th>
-                                                        <th>Description</th>
-                                                        <th style="width:10%">Status</th>
-                                                        <th class="text-center" style="width:20%">Action</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    
-                                                    </tbody>
-                                                </table>
+                            <input type="text" placeholder="Search for keywords" class="form-control" name="top-search"
+                                id="top-search">
+                        </div>
+                    </form>
+
+                    <div class="navbar-menu d-flex">
+                        <div class="menu-item">
+                            <a href="#" class="btn right-sidebar-toggle"><img src="img/person-border-svgrepo-com.svg"
+                                    class="img-icon" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- EOF Header Nav -->
+
+                </div>
+            </div>
+        </div>
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-content">
+                <!-- sidebar-menu  -->
+                <div class="sidebar-menu">
+                    <div class="header-menu  center-between-flex">
+                        <span> Lists</span>
+                        <a href="#" class="btn btn-outline-secondary add-list-button"><img
+                                src="img/add-circle-svgrepo-com.svg" class="img-icon-no-padding" alt="add"></a>
+                    </div>
+                    <ul class="list-decoration-ul">
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+        </div>
+        <div class="main">
+            <div class="row">
+                <div class="col">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;">
+                                <img src="img/house-chimney-floor-svgrepo-com.svg" class="img-icon"
+                                    alt="house-chimney-floor-svgrepo-com">
+                                Dashboard
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row status-section-progress">
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="icon-left text-secondary"><img src="img/status-error-filled-svgrepo-com.svg"
+                                    class="img-icon-status" alt=""></div>
+                            <div class="number-right text-right">
+                                <h6 class="bold text-secondary">Open Status</h6>
+                                <h3 class="card-title text-warning bold">0</h3>
+                            </div>
+                            <div class="progress progress-bar-sm">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                    role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <!--                        <div class="progress-text text-secondary">-->
+                            <!--                            <span class="float-left"><small>$0</small></span>-->
+                            <!--                            <span class="float-right"><small>$100,000</small></span>-->
+                            <!--                        </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="icon-left text-secondary"><img src="img/status-running-svgrepo-com.svg"
+                                    class="img-icon-status" alt=""></div>
+                            <div class="number-right text-right">
+                                <h6 class="bold text-secondary">In Progress Status</h6>
+                                <h3 class="card-title text-primary bold">0</h3>
+                            </div>
+                            <div class="progress progress-bar-sm">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                                    role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <!--                        <div class="progress-text text-secondary">-->
+                            <!--                            <span class="float-left"><small>Total Monthly Orders</small></span>-->
+                            <!--                        </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="icon-left text-secondary"><img src="img/status-approved-filled-svgrepo-com.svg"
+                                    class="img-icon-status" alt=""></div>
+                            <div class="number-right text-right">
+                                <h6 class="bold text-secondary">Close Status</h6>
+                                <h3 class="card-title text-bubblegum bold">0</h3>
+                            </div>
+                            <div class="progress progress-bar-sm">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-bubblegum"
+                                    role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <!--                        <div class="progress-text text-secondary">-->
+                            <!--                            <span class="float-left"><small>0%</small></span>-->
+                            <!--                            <span class="float-right"><small>100%</small></span>-->
+                            <!--                        </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-3">
+                        <div class="card-header uppercase">
+                            <div class="caption">
+                                <i class="ti-briefcase"></i> Task Table Selected List
+                            </div>
+                            <div class="tools">
+                                <a class="btn btn-outline-secondary add-task-table"><img
+                                        src="img/add-circle-svgrepo-com.svg" class="img-icon-status" alt="add"></a>
+                            </div>
+                        </div>
+                        <div class="card-body scrollbox-lg" data-simplebar="init">
+                            <div class="simplebar-wrapper" style="margin: -19px;">
+                                <div class="simplebar-height-auto-observer-wrapper">
+                                    <div class="simplebar-height-auto-observer"></div>
+                                </div>
+                                <div class="simplebar-mask">
+                                    <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                        <div class="simplebar-content-wrapper"
+                                            style="height: 100%; overflow: hidden scroll;">
+                                            <div class="simplebar-content" style="padding: 19px;">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-hover table-task">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width:5%">ID</th>
+                                                                <th style="width:10%">Title</th>
+                                                                <th>Description</th>
+                                                                <th style="width:10%">Status</th>
+                                                                <th class="text-center" style="width:20%">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="simplebar-placeholder" style="width: 1706px; height: 618px;"></div>
                             </div>
-                            <div class="simplebar-placeholder" style="width: 1706px; height: 618px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card mb-3">
-                    <div class="card-header uppercase">
-                        <div class="caption">
-                            <i class="ti-briefcase"></i> Report Table Selected Task
-                        </div>
-                        <div class="tools">
-                            <a class="btn btn-outline-secondary add-report-table"><img src="img/add-circle-svgrepo-com.svg" class="img-icon-status" alt="add"></a>
-                        </div>
-                    </div>
-                    <div class="card-body scrollbox-lg" data-simplebar="init">
-                        <div class="simplebar-wrapper" style="margin: -19px;">
-                            <div class="simplebar-height-auto-observer-wrapper">
-                                <div class="simplebar-height-auto-observer"></div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-3">
+                        <div class="card-header uppercase">
+                            <div class="caption">
+                                <i class="ti-briefcase"></i> Report Table Selected Task
                             </div>
-                            <div class="simplebar-mask">
-                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                                    <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
-                                        <div class="simplebar-content" style="padding: 19px;">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered table-hover table-report">
-                                                    <thead>
-                                                    <tr>
-                                                        <th style="width:5%">ID</th>
-                                                        <th>Description</th>
-                                                        <th class="text-center" style="width:20%">Action</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    
-                                                    </tbody>
-                                                </table>
+                            <div class="tools">
+                                <a class="btn btn-outline-secondary add-report-table"><img
+                                        src="img/add-circle-svgrepo-com.svg" class="img-icon-status" alt="add"></a>
+                            </div>
+                        </div>
+                        <div class="card-body scrollbox-lg" data-simplebar="init">
+                            <div class="simplebar-wrapper" style="margin: -19px;">
+                                <div class="simplebar-height-auto-observer-wrapper">
+                                    <div class="simplebar-height-auto-observer"></div>
+                                </div>
+                                <div class="simplebar-mask">
+                                    <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                        <div class="simplebar-content-wrapper"
+                                            style="height: 100%; overflow: hidden scroll;">
+                                            <div class="simplebar-content" style="padding: 19px;">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-hover table-report">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width:5%">ID</th>
+                                                                <th>Description</th>
+                                                                <th class="text-center" style="width:20%">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="simplebar-placeholder" style="width: 1706px; height: 618px;"></div>
                             </div>
-                            <div class="simplebar-placeholder" style="width: 1706px; height: 618px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="sidebar-right">
-        <div class="sidebar-right-container">
-            <div class="tab-content">
-                <div id="tab-1" class="tab-pane show active">
-                    <div class="pane-header">
-                        <h3><img src="img/person-border-svgrepo-com.svg" class="img-icon-user" alt=""> User Panel</h3>
-                        <div class="fa fa-circle"></div>
-                        <span class="profile-user">online</span>
-                        <span class="float-right"><a class="text-carolina">Log-Out</a></span>
-                    </div>
-                    <div class="pane-body">
-                        <div class="card bg-transparent">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <h5 class="mb-3">My Profile</h5>
-                                    <form class="form-update-profile">
-                                        
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-md-4">full name:</label>
-                                            <div class="col">
-                                                <input type="text" name="full_name" class="form-control-plaintext"
-                                                       value="Humbleman" required>
+        <div id="sidebar-right">
+            <div class="sidebar-right-container">
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane show active">
+                        <div class="pane-header">
+                            <h3><img src="img/person-border-svgrepo-com.svg" class="img-icon-user" alt=""> User Panel
+                            </h3>
+                            <div class="fa fa-circle"></div>
+                            <span class="profile-user">online</span>
+                            <span class="float-right"><a class="text-carolina">Log-Out</a></span>
+                        </div>
+                        <div class="pane-body">
+                            <div class="card bg-transparent">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <h5 class="mb-3">My Profile</h5>
+                                        <form class="form-update-profile">
+
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-4">full name:</label>
+                                                <div class="col">
+                                                    <input type="text" name="full_name" class="form-control-plaintext"
+                                                        value="Humbleman" required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-md-4">Email:</label>
-                                            <div class="col">
-                                                <input type="text" name="email" class="form-control-plaintext"
-                                                       value="siquang@example.com" required>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-4">Email:</label>
+                                                <div class="col">
+                                                    <input type="text" name="email" class="form-control-plaintext"
+                                                        value="siquang@example.com" required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-md-4">Username:</label>
-                                            <div class="col">
-                                                <input type="text" name="username" class="form-control-plaintext"
-                                                       value="siquang" required>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-4">Username:</label>
+                                                <div class="col">
+                                                    <input type="text" name="username" class="form-control-plaintext"
+                                                        value="siquang" required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-md-4">Password:</label>
-                                            <div class="col">
-                                                <input type="password" name="password" class="form-control-plaintext"
-                                                       value="123456789" required>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-4">Password:</label>
+                                                <div class="col">
+                                                    <input type="password" name="password"
+                                                        class="form-control-plaintext" value="123456789" required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col offset-md-4 pl-2">
-                                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                                        </div>
-                                    </form>
-                                </li>
-                            </ul>
+                                            <div class="col offset-md-4 pl-2">
+                                                <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer">
-        <p class="text-center">
-            <a class="ml-2" href="#" target="_blank"><img
-                    src="https://img.shields.io/badge/License-MIT-green.svg" alt="siQtheme License"></a>
-            <a class="ml-2" href="#" target="_blank"><img
-                    src="https://img.shields.io/github/release/siQuang/siqtheme.svg" alt="Github siQtheme"></a>
-            <a class="ml-2" href="#" target="_blank"><img
-                    src="https://img.shields.io/npm/v/siqtheme/latest.svg" alt="NPM siQtheme"></a>
-        </p>
+        <div class="footer">
+            <p class="text-center">
+                <a class="ml-2" href="#" target="_blank"><img src="https://img.shields.io/badge/License-MIT-green.svg"
+                        alt="siQtheme License"></a>
+                <a class="ml-2" href="#" target="_blank"><img
+                        src="https://img.shields.io/github/release/siQuang/siqtheme.svg" alt="Github siQtheme"></a>
+                <a class="ml-2" href="#" target="_blank"><img src="https://img.shields.io/npm/v/siqtheme/latest.svg"
+                        alt="NPM siQtheme"></a>
+            </p>
 
-        <p class="text-center">Copyright © 2024-2025 designed by <a href="https://github.com/amirpc1391" target="_blank">amirpc1391</a>. All rights reserved.</p>
-    </div>
-    <div id="toast-container" class="toast-top-center">
-        
-        <!-- <div class="toast toast-error">
+            <p class="text-center">Copyright © 2024-2025 designed by <a href="https://github.com/amirpc1391"
+                    target="_blank">amirpc1391</a>. All rights reserved.</p>
+        </div>
+        <div id="toast-container" class="toast-top-center">
+
+            <!-- <div class="toast toast-error">
             <div class="toast-message">Let your ideas fly high!</div>
         </div> -->
-        <!-- <div class="toast toast-success">
+            <!-- <div class="toast toast-success">
             <div class="toast-message">Let your ideas fly high!</div>
         </div> -->
-        
+
+        </div>
+        <div class="modal-backdrop fade" style="display: none;"></div>
+
+        <div class="modals-window">
+            <div class="modal fade add-list-modal" id="exampleVarying" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-modal="true" style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">add a list</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name1" class="col-form-label">title:</label>
+                                    <input type="text" class="form-control fix-size-width" id="recipient-name1"
+                                        required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade add-task-modal" id="exampleVarying" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-modal="true" style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">add a task</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name2" class="col-form-label">title:</label>
+                                    <input type="text" class="form-control fix-size-width" id="recipient-name2"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Description:</label>
+                                    <textarea class="form-control fix-size-width" id="message-text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="modal fade add-report-modal" id="exampleVarying" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-modal="true" style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">add a Report</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Description:</label>
+                                    <textarea class="form-control fix-size-width" id="message-text2"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="modal-backdrop fade" style="display: none;"></div>
-
-    <div class="modals-window">
-        <div class="modal fade add-list-modal" id="exampleVarying" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true" style="display: none;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">add a list</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="recipient-name1" class="col-form-label">title:</label>
-                                <input type="text" class="form-control fix-size-width" id="recipient-name1" required>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="modal fade add-task-modal" id="exampleVarying" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true" style="display: none;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">add a task</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="recipient-name2" class="col-form-label">title:</label>
-                                <input type="text" class="form-control fix-size-width" id="recipient-name2" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Description:</label>
-                                <textarea class="form-control fix-size-width" id="message-text"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="modal fade add-report-modal" id="exampleVarying" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true" style="display: none;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">add a Report</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Description:</label>
-                                <textarea class="form-control fix-size-width" id="message-text2"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="modal fade add-list-modal" id="exampleVarying" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true" style="display: none;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New message to @Humbleman</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                <input type="text" class="form-control fix-size-width" id="recipient-name">
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Message:</label>
-                                <textarea class="form-control fix-size-width" id="message-text"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    </div>
-</div>
-<script src="script/script.js"></script>
+    <script src="script/script.js"></script>
 </body>
+
 </html>
